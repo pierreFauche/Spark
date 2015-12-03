@@ -1,4 +1,3 @@
-q1.scala
 //import des classes dont nous aurons besoin
 import au.com.bytecode.opencsv.CSVParser
 import org.apache.spark.rdd.RDD
