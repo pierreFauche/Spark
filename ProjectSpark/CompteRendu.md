@@ -1,21 +1,24 @@
 PARTIE1:
 
-	RDD:
-		1) (10851(A)VC TAKE VEH W/O OWNER,653) 
-		2) 	(1/11/06,311)
+	RDD:Le code de cette partie se trouve 
+	
+		1) voici le resultat obtenu:
+			(10851(A)VC TAKE VEH W/O OWNER,653) 
+		2) voici les resultat obtenu:	
+			(1/11/06,311)
 			(1/18/06,295)
 			(1/17/06,282)
 		3) ...
 
-	DATA FRAME:
+	DATA FRAME:Le code de cette partie ce trouve:
 
-		1) OK
+		1) voici le resultat obtenu:
 				+--------------------+-----+                                         
 				|          crimedescr|count|
 				+--------------------+-----+
 				|10851(A)VC TAKE V...|  653|
 				+--------------------+-----+
-		2)  OK
+		2)  voici le resultat obtenu:
 				+---------+-----+                                                    
 				|cdatetime|count|
 				+---------+-----+
@@ -24,7 +27,7 @@ PARTIE1:
 				|  1/17/06|  282|
 				+---------+-----+
 
-		3) OK
+		3) voici le resultat obtenu:
 				+--------------------+------------------+   
 				|          crimedescr|      (count / 31)|
 				+--------------------+------------------+
