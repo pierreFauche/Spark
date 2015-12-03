@@ -1,49 +1,31 @@
+q1.scala
+//import des classes dont nous aurons besoin
 import au.com.bytecode.opencsv.CSVParser
 import org.apache.spark.rdd.RDD
 
+
+//nous créons un "Distributed RDD" de notre fichier CSV 
 val crimeFile = "crimes.csv"
 val crimeData = sc.textFile(crimeFile).cache()
 
 
+//Question1:
 
-
-
-crimeData.mapPartitions(lines => {
-         val parser = new CSVParser(',')
-         lines.map(line => {
-           parser.parseLine(line).mkString(",")
-         })
-       }).take(5).foreach(println)
-
-def dropHeader(data: RDD[String]): RDD[String] = {
-         data.mapPartitionsWithIndex((idx, lines) => {
-           if (idx == 0) {
-             lines.drop(1)
-           }
-           lines
-         })
-       }
-
-val withoutHeader: RDD[String] = dropHeader(crimeData)
-
-withoutHeader.mapPartitions(lines => {
-         val parser = new CSVParser(',')
-         lines.map(line => {
-           parser.parseLine(line).mkString(",")
-         })
-       }).take(5).foreach(println)
-
-
-/////////////////////////////////////Ma reponse question 1
+// nous pouvons maintenant regrouper les element de la colonne «crimedesc» 
+//et afficher la valeur maximum comme suit
+ 
+   
     crimeData.mapPartitions(lines => {
       val parser=new CSVParser(',');
       lines.map(line => {
         val columns = parser.parseLine(line)
         Array(columns(5)).mkString(",")
       })
-    }).countByValue().maxBy(_._2)._1;
+    }).countByValue().maxBy(_._2);
 
-//////////////////////////////////////// Ma reponse question 2
+// Question 2
+// de meme nous pouvons maintenant regrouper les element de la colonne cdatetime 
+//et afficher les 3 valeurs maximum comme suit:
 
 
   
@@ -55,3 +37,37 @@ withoutHeader.mapPartitions(lines => {
 
           })
     }).countByValue().toList.sortBy(-_._2).take(3).foreach(println)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
